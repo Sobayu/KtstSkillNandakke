@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
 // @name         コトシタ【スキル選択時】効果表示
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.0.1
 // @description  スキル選択ドロップダウンリストの中に効果を入れるだけ
 // @author       mikante927
 // @require		 http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
@@ -21,7 +21,7 @@ jQuery(document).ready(function($){
         dct[val] = $(elmtd).text();
     });
     $("select.ARE").filter("[name ^= '"+selPrefix+"']").map( (idxsl,elmsl) => {
-        $(elmsl).click( () => {
+        $(elmsl).mousedown( () => {
             if ( ! (idxsl in doneList ) ) {
                 $(elmsl).css("max-width", ($(elmsl).width()+2) +"px");
                 doneList[idxsl] = true;
